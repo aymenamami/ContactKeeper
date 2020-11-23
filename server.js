@@ -1,7 +1,14 @@
 const express = require('express')
+const connectDB = require('./config/db')
 const app = express()
+
+//connect database
+connectDB()
+//init middleware
+app.use(express.json({ extanded: false }))
+
 app.get('/', (req, res) =>
-    res.json({ msg: 'Welcom to the ConectKeeper API....' })
+    res.json({ msg: 'Welcome to the ConnectKeeper API....' })
 )
 
 //define routes
